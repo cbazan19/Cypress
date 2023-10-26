@@ -206,7 +206,7 @@ describe('Smoke Testing Abbaco Version', () =>
     })       
 
 
-    it.only('Sensibilidad', () => 
+    it('Sensibilidad', () => 
     {
 
     // Agregar especie y escenario
