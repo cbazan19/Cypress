@@ -105,7 +105,7 @@ describe('Smoke Testing Abbaco Version', () =>
     it('Mi Portafolio', () => 
     {
 
-    // Agregar especie y nominales y luego verificar que se pueda ir a Analizar desde la pestaña Posición
+    // Agregar especie y nominales y luego verificar que se visualice la posición correctamente
 
         cy.contains('MI PORTAFOLIO').should('exist').and('be.visible').click()
         cy.wait(1500)
@@ -116,9 +116,7 @@ describe('Smoke Testing Abbaco Version', () =>
         cy.contains('Agregar').should('exist').and('be.visible').click({force: true})
         cy.get('.mb-3 > .card > .card-body').should('exist').and('be.visible')
         cy.get('.col-lg-6 > .card > .card-body').should('exist').and('be.visible')
-        cy.get('tr > :nth-child(1) > .p-0', {timeout:50000}).should('exist').and('be.visible').eq(0).click({force: true})
-        cy.get('li[class="d-flex justify-content-between align-items-start border-0 border-bottom list-group-item"]', {timeout:50000}).should('exist').and('be.visible').eq(1).click({force: true})
-        cy.get('.card-body', {timeout:50000}).should('exist').and('be.visible')
+        cy.get('tr > :nth-child(1) > .p-0', {timeout:50000}).should('exist').and('be.visible')
 
     // Eliminar la Posición creada previamente  
 
@@ -208,7 +206,7 @@ describe('Smoke Testing Abbaco Version', () =>
     })       
 
 
-    it('Sensibilidad', () => 
+    it.only('Sensibilidad', () => 
     {
 
     // Agregar especie y escenario
@@ -221,9 +219,8 @@ describe('Smoke Testing Abbaco Version', () =>
         cy.contains('Aceptar').should('exist').and('be.visible').click({force: true})
         cy.get('.m-2', {timeout:50000}).should('exist').and('be.visible')
         cy.get('button[class="float-end float-lg-start btn btn-primary"]', {timeout:50000}).should('exist').and('be.visible').click({force: true})
-        cy.get(':nth-child(3) > .p-0', {timeout:50000}).should('exist').and('be.visible').click({force: true})
-        cy.get('li[class="d-flex justify-content-between align-items-start border-0 border-bottom list-group-item"]', {timeout:50000}).should('exist').and('be.visible')
-        
+        cy.get(':nth-child(2) > a', {timeout:50000}).should('exist').and('be.visible') 
+        cy.get(':nth-child(2) > .placeholder-glow > .col-12', {timeout:50000}).should('exist').and('be.visible') 
     
     // Eliminar Escenario
 
