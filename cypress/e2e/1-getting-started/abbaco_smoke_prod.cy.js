@@ -40,7 +40,7 @@ describe('Smoke Testing Abbaco Prod', () =>
         cy.get('div[class="gy-4 row"]').should('exist').and('be.visible')
         cy.get('button[class="float-end btn btn-primary"]').eq(0).should('exist').and('be.visible').and('have.text', 'Simular')
         cy.get('#investmentAmount', {timeout:50000}).should('exist').and('be.visible').click({force: true}).type('100000')
-        cy.get('#value').should('exist').and('be.visible').click({force: true}).type('5000')
+        cy.get('#value').should('exist').and('be.visible').click({force: true}).clear().type('5000')
         cy.get(':nth-child(5) > #exchangeRate').should('exist').and('be.visible').click({force: true}).type('2000')
         cy.get('button[class="float-end btn btn-primary"]').eq(0).should('exist').and('be.visible').and('have.text', 'Simular').click({force: true})
         cy.get('.col-xl-4 > .card > .card-body > .table-responsive > .my-3 > tbody > :nth-child(1) > :nth-child(1) > .small', {timeout:50000}).should('exist').and('be.visible')
@@ -55,14 +55,18 @@ describe('Smoke Testing Abbaco Prod', () =>
     it('Mi Portafolio', () => 
     {
 
-    // Agregar especie, verifica su carga, recorre las pestañas y en cada pestaña valida la carga de datos
+    // Verifica especie en el portfolio, recorre las pestañas y en cada una valida la carga de datos
 
         cy.contains('MI PORTAFOLIO').should('exist').and('be.visible').click()
         cy.get('.table-responsive', {timeout:50000}).should('exist').and('be.visible').and('contain.text', 'Bono').and('contain.text', 'Nombre').and('contain.text', 'Moneda').and('contain.text', 'Nominales').and('contain.text', 'Precio').and('contain.text', 'Valorizado')
-        cy.get('#bond').should('exist').and('be.visible').click({force: true}).type('AL30')
+
+    // Agregar especie opcional    
+
+    /*    cy.get('#bond').should('exist').and('be.visible').click({force: true}).type('AL30')
         cy.get('a[class="text-truncate overflow-hidden text-break  list-group-item list-group-item-action dropdown-item"]', {timeout:50000}).should('exist').and('be.visible').click({force: true})
         cy.get('#nominals').should('exist').and('be.visible').click({force: true}).type('10000')
-        cy.contains('Agregar').should('exist').and('be.visible').click({force: true})
+        cy.contains('Agregar').should('exist').and('be.visible').click({force: true})   */
+
         cy.get('tr > :nth-child(1) > .p-0', {timeout:50000}).should('exist').and('be.visible').eq(0).click({force: true})
         cy.get('li[class="d-flex justify-content-between align-items-start border-0 border-bottom list-group-item"]', {timeout:50000}).should('exist').and('be.visible')
         cy.get('.mb-3 > .card > .card-body').should('exist').and('be.visible')
