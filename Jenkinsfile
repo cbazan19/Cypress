@@ -3,11 +3,7 @@ pipeline{
 
     parameters{
         string(name:"SPEC", defaultValue: "cypress/e2e/1-getting-started/**", description: "Ejemplo: cypress/e2e/1-getting-started/abbaco_smoke_prod.cy.js")
-        choice(name: "BROWSER", choises: ['Chrome', 'Edge', 'Firefox'], description: "Elegir browser para ejecutar el test")
-    }
-
-    options{
-        ansiColor('xterm')
+        choice(name: "BROWSER", choices: ['Chrome', 'Edge', 'Firefox'], description: "Elegir browser para ejecutar el test")
     }
 
     stages{
