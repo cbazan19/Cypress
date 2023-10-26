@@ -2,7 +2,7 @@ pipeline{
     agent any
     
     parameters {
-        string(name: 'SPEC', description: 'Especificar el archivo de prueba', defaultValue: 'cypress\e2e\1-getting-started\abbaco_smoke_prod.cy.js')
+        string(name: 'SPEC', description: 'Especificar el archivo de prueba', defaultValue: 'cypress\e2e\1-getting-started\**')
         choice(name: 'BROWSER', description: 'Selecciona un navegador', choices: ['chrome', 'firefox', 'edge'], defaultValue: 'chrome')
     }
 
