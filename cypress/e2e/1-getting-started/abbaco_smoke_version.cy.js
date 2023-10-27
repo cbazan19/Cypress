@@ -143,7 +143,7 @@ describe('Smoke Testing Abbaco Version', () =>
    
     })    
 
-    it.only('Comparar', () => 
+    it('Comparar', () => 
     {
 
     // Agregar especie y nominales y luego verificar que se pueda ir a Analizar desde la pestaña Posición
