@@ -1,8 +1,14 @@
 pipeline{
     agent any
 
+    triggers {
+        //cron('0 1 * * *') // Ejecutar todos los días a la 1:00 AM (puedes ajustar el horario)
+        //cron('0 10 * * 1-5') // Ejecutar de lunes a viernes a las 10:00 AM  
+        cron('35 16 * * 1-5') // Ejecutar de lunes a viernes a las 16:35
+    }
+
     parameters{
-        string(name:"SPEC", defaultValue: "cypress/e2e/1-getting-started/**", description: "Ejemplo: cypress/e2e/1-getting-started/abbaco_smoke_prod.cy.js")
+        string(name:"SPEC", defaultValue: "cypress/e2e/1-getting-started/abbaco_smoke_prod.cy.js", description: "Ejemplo: cypress/e2e/1-getting-started/abbaco_smoke_prod.cy.js")
         choice(name: "BROWSER", choices: ['chrome', 'edge', 'firefox'], description: "Elegir browser para ejecutar el test")
     }
 
