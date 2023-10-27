@@ -143,7 +143,7 @@ describe('Smoke Testing Abbaco Version', () =>
    
     })    
 
-    it('Comparar', () => 
+    it.only('Comparar', () => 
     {
 
     // Agregar especie y nominales y luego verificar que se pueda ir a Analizar desde la pestaña Posición
@@ -172,6 +172,7 @@ describe('Smoke Testing Abbaco Version', () =>
     // Ir a la pestaña Analizar y borrar la comparativa
 
         cy.contains('Análisis').should('exist').and('be.visible').click({force: true})  
+        cy.wait(1000)
         cy.get('tr > :nth-child(1) > a', {timeout:50000}).should('exist').and('be.visible')
         cy.get('button[title="Eliminar de la comparativa"]', {timeout:50000}).should('exist').and('be.visible').eq(1).click({force: true})
         cy.get('td[class="text-center"]', {timeout:50000}).should('exist').and('be.visible').and('have.text', 'Agregue especies utilizando el formulario para comenzar')
