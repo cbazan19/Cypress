@@ -79,7 +79,7 @@ describe('Smoke Testing Abbaco Version', () =>
    
     })
 
-    it('Curvas', () => 
+    it.only('Curvas', () => 
     {
 
     // Hace click en un tipo de curva, recorre sus pestañas y espera que se muestre la información (se saca validación que se pueda ir a Analizar desde la curva seleccionada)
@@ -92,7 +92,7 @@ describe('Smoke Testing Abbaco Version', () =>
         cy.get(':nth-child(16) > :nth-child(1) > .p-0', {timeout:50000}).scrollIntoView().should('exist').and('be.visible').click({force: true})
         cy.get('li[class="d-flex justify-content-between align-items-start border-0 border-bottom list-group-item"]', {timeout:50000}).should('exist').and('be.visible')
         cy.contains('Análisis online').should('exist').and('be.visible').click({force: true})
-        cy.get('.card-body > .table > tbody > :nth-child(11) > :nth-child(1) > .p-0', {timeout:50000}).should('exist').and('be.visible').click({force: true})
+        cy.get('.card-body > .table > tbody > :nth-child(4) > :nth-child(1) > .p-0', {timeout:50000}).should('exist').and('be.visible').click({force: true})
         cy.get('li[class="d-flex justify-content-between align-items-start border-0 border-bottom list-group-item"]', {timeout:50000}).should('exist').and('be.visible')
         cy.contains('Bonos fuera de la curva').should('exist').and('be.visible').click({force: true})
         cy.contains('RAC4O', {timeout:50000}).should('exist').and('be.visible').click({force: true})
