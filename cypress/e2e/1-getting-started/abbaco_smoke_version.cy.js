@@ -79,7 +79,7 @@ describe('Smoke Testing Abbaco Version', () =>
    
     })
 
-    it.only('Curvas', () => 
+    it('Curvas', () => 
     {
 
     // Hace click en un tipo de curva, recorre sus pestañas y espera que se muestre la información (se saca validación que se pueda ir a Analizar desde la curva seleccionada)
