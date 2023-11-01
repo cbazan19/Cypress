@@ -47,8 +47,6 @@ describe('Smoke Testing Abbaco Prod', () =>
         cy.get('.col-xl-4').should('exist').and('be.visible')
         cy.get('.col-xl-5').should('exist').and('be.visible')
 
-        
-
     })
       
 
