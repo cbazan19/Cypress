@@ -1,10 +1,26 @@
+
+def COLOR_MAP = [
+    'SUCCESS': 'good',
+    'FAILURE': 'danger'
+
+]
+
+def getBuildUser(){
+    return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserID()
+}
+
+
 pipeline{
     agent any
 
+    environment{
+        BUILD_USER = ''
+    }
+
     triggers {
-        //cron('0 1 * * *') // Ejecutar todos los días a la 1:00 AM (puedes ajustar el horario)
+        //cron('0 1 * * *') // Ejecutar todos los días a la 1:00 AM
         //cron('0 10 * * 1-5') // Ejecutar de lunes a viernes a las 10:00 AM  
-        cron('50 16 * * 1-5') // Ejecutar de lunes a viernes a las 16:50
+        cron('30 09 * * 1-5') // Ejecutar de lunes a viernes a las 09:30 AM
     }
 
     parameters{
@@ -38,6 +54,15 @@ pipeline{
 
     post{
         always{
+
+            script{
+                BUILD_USER = getBuildUser()
+            }
+
+            slackSend channel: 'cypress',
+                        color: COLOR_MAP[currentBuild.currentResult],
+                        message: "${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER} \n Test ejecutado ${SPEC} en ${BROWSER} \n Ver el reporte en ${env.BUILD_URL}HTML_20Report/"
+
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/reports/html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
         }
 
