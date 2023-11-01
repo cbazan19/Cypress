@@ -13,9 +13,11 @@ def getBuildUser(){
 pipeline{
     agent any
 
+    /*  Variable para la notificación en slack
+
     environment{
         BUILD_USER = ''
-    }
+    }*/
 
     triggers {
         //cron('0 1 * * *') // Ejecutar todos los días a la 1:00 AM
@@ -55,13 +57,15 @@ pipeline{
     post{
         always{
 
+            /* Configuración para la notificación en slack
+
             script{
                 BUILD_USER = getBuildUser()
             }
 
             slackSend   channel: 'cypress',
                         color: COLOR_MAP[currentBuild.currentResult],
-                        message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER} \n Test ejecutado: ${SPEC} \n Navegador: ${BROWSER} \n Ver detalle en: ${env.BUILD_URL}HTML_20Report/"
+                        message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER} \n Test ejecutado: ${SPEC} \n Navegador: ${BROWSER} \n Ver detalle en: ${env.BUILD_URL}HTML_20Report/"    */
 
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/reports/html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
         }
