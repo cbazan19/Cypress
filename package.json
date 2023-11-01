@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "cypress open",
-    "html-report-smoke-version": "cypress run --spec cypress/e2e/1-getting-started/abbaco_smoke_version.cy.js --browser chrome --headed",
-    "html-report-smoke-prod": "cypress run --spec cypress/e2e/1-getting-started/abbaco_smoke_prod.cy.js --browser chrome --headed"
+    "html-report-smoke-version": "cypress run --spec cypress/e2e/1-getting-started/abbaco_smoke_version.cy.js --browser firefox --headed",
+    "html-report-smoke-prod": "cypress run --spec cypress/e2e/1-getting-started/abbaco_smoke_prod.cy.js --browser firefox --headed"
   },
   "keywords": [],
   "author": "",
