@@ -28,7 +28,7 @@ describe('Smoke Testing Abbaco Prod', () =>
         cy.contains('Análisis de Sensibilidad').click({force: true})
         cy.get('div[class="d-flex align-items-center col-xxl-9 col-sm-12"]', {timeout:50000}).should('exist').and('be.visible')
         cy.get('#numberOfScenarios').should('exist').and('be.visible').click().type('4')
-        cy.get('#spreadVariation').should('exist').and('be.visible').click().type('4')
+        cy.get('#spreadVariatio').should('exist').and('be.visible').click().type('4')
         cy.get('.col-xxl-1 > .mb-3').should('exist').and('be.visible').and('have.text', 'Calcular').click()
         cy.get('.col-xxl-5').should('exist').and('be.visible')
         cy.get('.mb-3.col-xxl-7').should('exist').and('be.visible')
