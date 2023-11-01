@@ -6,7 +6,7 @@ def COLOR_MAP = [
 ]
 
 def getBuildUser(){
-    return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserID()
+    return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserId()
 }
 
 
@@ -59,9 +59,9 @@ pipeline{
                 BUILD_USER = getBuildUser()
             }
 
-            slackSend channel: 'cypress',
+            slackSend   channel: 'cypress',
                         color: COLOR_MAP[currentBuild.currentResult],
-                        message: "${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER} \n Test ejecutado ${SPEC} en ${BROWSER} \n Ver el reporte en ${env.BUILD_URL}HTML_20Report/"
+                        message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER} \n Test ejecutado ${SPEC} en ${BROWSER} \n Ver el reporte en ${env.BUILD_URL}HTML_20Report/"
 
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/reports/html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
         }
