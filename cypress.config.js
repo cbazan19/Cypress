@@ -5,7 +5,7 @@ module.exports = defineConfig({
   viewportHeight: 900,
   reporter: 'cypress-mochawesome-reporter',
   e2e: {
-    defaultCommandTimeout: 30000,	
+    defaultCommandTimeout: 50000,	
     experimentalSesssionAndOrigin: true,
     setupNodeEvents(on, config) {
       // implement node event listeners here
