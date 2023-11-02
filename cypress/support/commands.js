@@ -33,11 +33,9 @@ Cypress.Commands.add("LoginAbbaco", (user, password) =>
     cy.origin('https://mercap.auth0.com', () => 
     {
 
-      cy.viewport(1600, 900)
       cy.get('#username').should('exist').and('be.visible').click().type('cy_smoke@mercapsoftware.com')
       cy.get('#password').should('exist').and('be.visible').click().type('testing1')
       cy.contains('Continue').click({force: true})
-
 
    })
 
