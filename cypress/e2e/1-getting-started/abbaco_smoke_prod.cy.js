@@ -66,16 +66,15 @@ describe('Smoke Testing Abbaco Prod', () =>
 
     // Fin agregar especie, reocrre pestañas y valida carga    
 
-        cy.get('tr > :nth-child(1) > .p-0').should('exist').and('be.visible').eq(0).click({force: true})
+        cy.get('button[class="p-0 btn btn-link"]').should('exist').and('be.visible').click({force: true})
         cy.get('li[class="d-flex justify-content-between align-items-start border-0 border-bottom list-group-item"]').should('exist').and('be.visible')
         cy.get('.mb-3 > .card > .card-body').should('exist').and('be.visible')
         cy.get('.col-lg-6 > .card > .card-body').should('exist').and('be.visible')
-        cy.get('tr > :nth-child(1) > .p-0').should('exist').and('be.visible')
         cy.contains('Proyección').should('exist').and('be.visible').click({force: true})
         cy.get('tbody > :nth-child(3) > :nth-child(1) > div').should('exist').and('be.visible')
         cy.get('.card-body').should('exist').and('be.visible')
         cy.contains('Agenda de Cortes').should('exist').and('be.visible').click({force: true})
-        cy.get(':nth-child(2) > :nth-child(2) > :nth-child(1) > .float-end').should('exist').and('be.visible')
+        cy.get('span[class="float-end badge rounded-pill bg-primary"]').should('exist').and('be.visible')
         cy.get('.card-body').should('exist').and('be.visible')
         
     // Eliminar la Posición creada previamente  
