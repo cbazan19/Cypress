@@ -94,11 +94,11 @@ describe('Smoke Testing Abbaco Version', () =>
         cy.contains('CURVAS').should('exist').and('be.visible').click()
         cy.contains('Argentina - ONs - USD - Ley Argentina').should('exist').and('be.visible').click({force: true})
         cy.get('rect[class="highcharts-background"]').should('exist').and('be.visible')
-        cy.get(':nth-child(1) > .highcharts-a11y-proxy-button').should('exist').and('be.visible')
-        cy.get(':nth-child(16) > :nth-child(1) > .p-0').scrollIntoView().should('exist').and('be.visible').click({force: true})
+        cy.get('g[class="highcharts-legend-item highcharts-scatter-series highcharts-color-4 highcharts-series-14"]').should('exist').and('be.visible')
+        cy.get('button[class="p-0 btn btn-link"]').eq(18).scrollIntoView().should('exist').and('be.visible').click({force: true})
         cy.get('li[class="d-flex justify-content-between align-items-start border-0 border-bottom list-group-item"]').should('exist').and('be.visible')
         cy.contains('Análisis online').should('exist').and('be.visible').click({force: true})
-        cy.get('.card-body > .table > tbody > :nth-child(4) > :nth-child(1) > .p-0').should('exist').and('be.visible').click({force: true})
+        cy.get('button[class="p-0 btn btn-link"]').eq(39).scrollIntoView().should('exist').and('be.visible').click({force: true})
         cy.get('li[class="d-flex justify-content-between align-items-start border-0 border-bottom list-group-item"]').should('exist').and('be.visible')
         cy.contains('Bonos fuera de la curva').should('exist').and('be.visible').click({force: true})
         cy.contains('RAC4O').should('exist').and('be.visible').click({force: true})
@@ -117,18 +117,18 @@ describe('Smoke Testing Abbaco Version', () =>
         cy.get('a[class="text-truncate overflow-hidden text-break  list-group-item list-group-item-action dropdown-item"]').should('exist').and('be.visible').eq(0).click({force: true})
         cy.contains('Añadir').should('exist').and('be.visible').click({force: true})
         cy.get('.table-responsive').should('exist').and('be.visible')
-        cy.get('tr > :nth-child(1) > a').should('exist').and('be.visible')/*.click({force: true})
+        /*cy.get('a[href="/bond-analysis/AL30"]').should('exist').and('be.visible').click({force: true})
         cy.get('ul[class="mb-3 nav nav-underline').should('exist').and('be.visible').and('contain.text', 'General').and('contain.text', 'Condiciones de Emisión').and('contain.text', 'Análisis de Sensibilidad').and('contain.text', 'TIR Históricas').and('contain.text', 'Paridades Históricas').and('contain.text', 'Simular Inversión')
         cy.get('.card-body').should('exist').and('be.visible').and('contain.text', 'TIR').and('contain.text', 'TIR').and('contain.text', 'M. Duration').and('contain.text', 'Última Cotización').and('contain.text', 'Paridad').and('contain.text', 'Cotizaciones Históricas Clean').and('contain.text', 'Métricas secundarias').and('contain.text', 'Cashflow')
         cy.contains('COMPARAR').should('exist').and('be.visible').click()*/
-        cy.get(':nth-child(2) > .p-0').should('exist').and('be.visible').click()
+        cy.get('button[class="p-0 btn btn-link"]').should('exist').and('be.visible').click()
         cy.get('.list-group > :nth-child(1) > a').should('exist').and('be.visible')/*.click({force: true})
         cy.get('ul[class="mb-3 nav nav-underline').should('exist').and('be.visible').and('contain.text', 'General').and('contain.text', 'Condiciones de Emisión').and('contain.text', 'Análisis de Sensibilidad').and('contain.text', 'TIR Históricas').and('contain.text', 'Paridades Históricas').and('contain.text', 'Simular Inversión')
         cy.get('.card-body').should('exist').and('be.visible').and('contain.text', 'TIR').and('contain.text', 'TIR').and('contain.text', 'M. Duration').and('contain.text', 'Última Cotización').and('contain.text', 'Paridad').and('contain.text', 'Cotizaciones Históricas Clean').and('contain.text', 'Métricas secundarias').and('contain.text', 'Cashflow')
         cy.contains('COMPARAR').should('exist').and('be.visible').click()*/
         cy.contains('Condiciones de Emisión').should('exist').and('be.visible').click({force: true})
         cy.get('.table-responsive').should('exist').and('be.visible')
-        cy.get('.small > tbody > tr > :nth-child(2) > .p-0').should('exist').and('be.visible').click({force: true})
+        cy.get('button[class="p-0 btn btn-link"]').eq(1).should('exist').and('be.visible').click()
         cy.get('.list-group > :nth-child(1) > a').should('exist').and('be.visible')
         cy.contains('TIR Históricas').should('exist').and('be.visible').click({force: true})
         cy.get('rect[class="highcharts-background').should('exist').and('be.visible')
@@ -138,8 +138,7 @@ describe('Smoke Testing Abbaco Version', () =>
     // Ir a la pestaña Análisis y borrar la comparativa
 
         cy.contains('Análisis').should('exist').and('be.visible').click({force: true})  
-        cy.get('tr > :nth-child(1) > a').should('exist').and('be.visible')
-        cy.get(':nth-child(12) > .badge > .svg-inline--fa > path').should('exist').and('be.visible').click({force: true})
+        cy.get('button[class="badge px-1 py-1 btn btn-danger"]').eq(0).should('exist').and('be.visible').click({force: true})
         cy.get('td[class="text-center"]').should('exist').and('be.visible').and('have.text', 'Agregue especies utilizando el formulario para comenzar')
         
 
@@ -185,8 +184,7 @@ describe('Smoke Testing Abbaco Version', () =>
         cy.contains('Aceptar').should('exist').and('be.visible').click({force: true})
         cy.get('.m-2').should('exist').and('be.visible')
         cy.get('button[class="float-end float-lg-start btn btn-primary"]').should('exist').and('be.visible').click({force: true})
-        cy.get(':nth-child(2) > a').should('exist').and('be.visible') 
-        cy.get(':nth-child(2) > .placeholder-glow > .col-12').should('exist').and('be.visible') 
+        cy.get('.text-success').should('exist').and('be.visible') 
     
     // Eliminar Escenario
 
