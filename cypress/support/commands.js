@@ -25,6 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import 'cypress-file-upload';
+import "@cypress-audit/lighthouse/commands";
 
 Cypress.Commands.add("LoginAbbaco", (user, password) => 
 { 

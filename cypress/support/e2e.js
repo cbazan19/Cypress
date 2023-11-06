@@ -18,6 +18,7 @@ import './commands';
 require('cypress-xpath');
 import 'cypress-file-upload';
 import 'cypress-mochawesome-reporter/register';
+import "@cypress-audit/lighthouse/commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
