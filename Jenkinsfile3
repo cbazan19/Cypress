@@ -69,8 +69,6 @@ pipeline{
                         message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER} \n Test ejecutado: ${SPEC} \n Navegador: ${BROWSER} \n Ver detalle en: ${env.BUILD_URL}HTML_20Report/"    */
 
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/reports/html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-            def jsonFile = 'lighthouse.json'
-            archiveArtifacts artifacts: jsonFile, allowEmptyArchive: true
             script {
                     def jsonFile = 'lighthouse.json' // Reemplaza con la ruta real al archivo JSON generado
                     archiveArtifacts artifacts: jsonFile, allowEmptyArchive: true
