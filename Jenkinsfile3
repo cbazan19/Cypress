@@ -71,8 +71,7 @@ pipeline{
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/reports/html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
             def jsonFile = 'lighthouse.json'
             archiveArtifacts artifacts: jsonFile, allowEmptyArchive: true
-            currentBuild.description = """<a href="https://googlechrome.github.io/lighthouse/viewer/" target="_blank">Enlace a Lighthouse Report Viewer </a>"""
-            }
+            currentBuild.description = """<a href="https://googlechrome.github.io/lighthouse/viewer/" target="_blank">Enlace a Report Viewer Lighthouse</a>"""
         }
 
     }
