@@ -70,7 +70,10 @@ pipeline{
 
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/reports/html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
             archiveArtifacts artifacts: 'lighthouse.json', allowEmptyArchive: true
-            currentBuild.description = "Enlace a Report Viewer Lighthouse: https://googlechrome.github.io/lighthouse/viewer/ "
+            script {
+                currentBuild.description = "Enlace a Report Viewer Lighthouse: https://googlechrome.github.io/lighthouse/viewer/ "
+            }
+            
         }
 
     }
