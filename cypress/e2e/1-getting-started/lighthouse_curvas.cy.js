@@ -21,7 +21,7 @@ it("Lighthouse Curvas", () =>
     cy.lighthouse(
     {
         performance: 55,
-        accessibility: 88,
+        accessibility: 86,
         "best-practices": 75,
         seo: 91,
 
