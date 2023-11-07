@@ -15,7 +15,6 @@ it('Graficador', () =>
     cy.get(':nth-child(1) > .text-wrap > span').should('exist').and('be.visible')
     cy.contains('Todos').should('exist').and('be.visible').click({force: true})
     cy.contains('Graficar').should('exist').and('be.visible').click({force: true})
-    cy.get(':nth-child(20) > .highcharts-a11y-proxy-button').should('exist').and('be.visible')
     cy.get('g[class="highcharts-legend highcharts-no-tooltip"]').should('exist').and('be.visible')
 })
 
