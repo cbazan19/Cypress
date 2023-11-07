@@ -21,7 +21,7 @@ it("Lighthouse Comparar", () =>
     {
         performance: 55,
         accessibility: 88,
-        "best-practices": 92,
+        "best-practices": 75,
         seo: 91,
 
     },

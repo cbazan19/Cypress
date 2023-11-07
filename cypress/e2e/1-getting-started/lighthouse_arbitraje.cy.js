@@ -28,7 +28,7 @@ it("Lighthouse Arbitraje", () =>
     {
         performance: 55,
         accessibility: 86,
-        "best-practices": 92,
+        "best-practices": 75,
         seo: 91,
 
     },

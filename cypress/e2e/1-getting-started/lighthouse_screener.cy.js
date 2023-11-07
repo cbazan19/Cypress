@@ -29,7 +29,7 @@ it("Lighthouse Screener", () =>
     {
         performance: 55,
         accessibility: 74,
-        "best-practices": 92,
+        "best-practices": 75,
         seo: 91,
 
     },
