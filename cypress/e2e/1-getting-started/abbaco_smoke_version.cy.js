@@ -233,6 +233,8 @@ describe('Smoke Testing Abbaco Version', () =>
         cy.contains('Todos').should('exist').and('be.visible').click({force: true})
         cy.contains('Graficar').should('exist').and('be.visible').click({force: true})
         cy.get(':nth-child(20) > .highcharts-a11y-proxy-button').should('exist').and('be.visible')
+        cy.get('g[class="highcharts-legend highcharts-no-tooltip"]').should('exist').and('be.visible')
+        
 
     // Va a la pestaña Especies ingresa, selecciona, la grafica y espera que se muestre 
 
