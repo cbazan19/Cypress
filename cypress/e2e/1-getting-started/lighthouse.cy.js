@@ -185,7 +185,7 @@ it('Comparar', () =>
 
 })    
 
-it("Lighthouse Home", () => 
+it("Lighthouse Comparar", () => 
 {
 
     cy.lighthouse(

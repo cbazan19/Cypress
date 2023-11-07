@@ -23,11 +23,11 @@ pipeline{
     triggers {
         //cron('0 1 * * *') // Ejecutar todos los días a la 1:00 AM
         //cron('0 10 * * 1-5') // Ejecutar de lunes a viernes a las 10:00 AM  
-        cron('30 09 * * 1-5') // Ejecutar de lunes a viernes a las 09:30 AM
+        cron('50 09 * * 1-5') // Ejecutar de lunes a viernes a las 09:30 AM
     }
 
     parameters{
-        string(name:"SPEC", defaultValue: "cypress/e2e/1-getting-started/abbaco_smoke_prod.cy.js", description: "Ejemplo: cypress/e2e/1-getting-started/abbaco_smoke_prod.cy.js")
+        string(name:"SPEC", defaultValue: "cypress/e2e/1-getting-started/lighthouse_graficador.cy.js", description: "Ejemplo: cypress/e2e/1-getting-started/lighthouse_graficador.cy.js")
         choice(name: "BROWSER", choices: ['chrome', 'edge', 'firefox', 'chromium'], description: "Elegir browser para ejecutar el test")
     }
 
@@ -69,6 +69,11 @@ pipeline{
                         message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER} \n Test ejecutado: ${SPEC} \n Navegador: ${BROWSER} \n Ver detalle en: ${env.BUILD_URL}HTML_20Report/"    */
 
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/reports/html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+            archiveArtifacts artifacts: 'lighthouse.json', allowEmptyArchive: true
+            script {
+                currentBuild.description = "Enlace para ver reporte (copiar y pegar json obtenido): https://googlechrome.github.io/lighthouse/viewer/ "
+            }
+            
         }
 
     }
