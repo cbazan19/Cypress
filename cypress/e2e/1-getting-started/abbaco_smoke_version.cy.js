@@ -101,7 +101,7 @@ describe('Smoke Testing Abbaco Version', () =>
         cy.get('button[class="p-0 btn btn-link"]').eq(39).scrollIntoView().should('exist').and('be.visible').click({force: true})
         cy.get('li[class="d-flex justify-content-between align-items-start border-0 border-bottom list-group-item"]').should('exist').and('be.visible')
         cy.contains('Bonos fuera de la curva').should('exist').and('be.visible').click({force: true})
-        cy.contains('RAC4O').should('exist').and('be.visible').click({force: true})
+        cy.contains('LMS7O').should('exist').and('be.visible').click({force: true})
         cy.get('li[class="d-flex justify-content-between align-items-start border-0 border-bottom list-group-item"]').should('exist').and('be.visible')
  
     })
