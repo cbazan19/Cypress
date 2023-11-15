@@ -8,10 +8,14 @@ it("Precondición: LogIn", () =>
 it('Curvas', () => 
 {
 
-// Ingresa a una curva en específico
+// Ingresa a una curva en específico y espera que cargue su info
 
     cy.contains('CURVAS').should('exist').and('be.visible').click()
     cy.contains('Argentina - ONs - USD - Ley Argentina').should('exist').and('be.visible').click({force: true})
+    cy.get('rect[class="highcharts-background"]').should('exist').and('be.visible')
+    cy.get('g[class="highcharts-legend-item highcharts-scatter-series highcharts-color-4 highcharts-series-14"]').should('exist').and('be.visible')
+    cy.get('button[class="p-0 btn btn-link"]').eq(18).scrollIntoView().should('exist').and('be.visible').click({force: true})
+    cy.get('li[class="d-flex justify-content-between align-items-start border-0 border-bottom list-group-item"]').should('exist').and('be.visible')
 
 })
 
