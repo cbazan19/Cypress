@@ -63,6 +63,7 @@ pipeline{
                 bat 'git push origin master'
             }
         }
+        }
         stage('Deploy'){
             steps{
                 echo "Deploying the application"
