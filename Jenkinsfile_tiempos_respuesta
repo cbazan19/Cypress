@@ -46,24 +46,6 @@ pipeline{
                 bat "npm i"
                 bat "npx cypress run --headless --browser ${BROWSER} --spec ${SPEC}"
             }
-
-        }
-        stage('Commit and Push CSV to Git') {
-        steps {
-            script {
-
-                // Configura el usuario de Git
-                bat 'git config user.email "c.b.carlosbazan@hotmail.com"'
-                bat 'git config user.name "cbazan19"'
-
-                // Añade y realiza commit del nuevo archivo CSV
-                bat 'git add cypress/results/tiempos_de_respuesta.csv'
-                bat 'git commit -m "Guardando tiempos de respuesta de la prueba"'
-
-                // Realiza push al repositorio
-                bat 'git push origin master'
-            }
-        }
         }
         stage('Deploy'){
             steps{

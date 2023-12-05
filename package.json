@@ -7,6 +7,7 @@
     "html-report-smoke-version": "cypress run --spec cypress/e2e/1-getting-started/abbaco_smoke_version.cy.js --browser chrome --headed",
     "lighthouse": "cypress run --spec cypress/e2e/1-getting-started/lighthouse.cy.js --browser chrome --headed",
     "lighthouse-analizar": "cypress run --spec cypress/e2e/1-getting-started/lighthouse_analizar.cy.js --browser chrome --headed",
+    "tiempos_respuesta": "cypress run --spec cypress/e2e/1-getting-started/tiempos_respuesta.cy.js --browser chrome --headed",
     "html-report-smoke-prod": "cypress run --spec cypress/e2e/1-getting-started/abbaco_smoke_prod.cy.js --browser chrome --headed"
   },
   "keywords": [],
