@@ -51,6 +51,8 @@ pipeline{
         stage('Commit and Push CSV to Git') {
         steps {
             script {
+
+                bat 'git checkout master || git checkout -b master'
                 // Configura el usuario de Git
                 bat 'git config user.email "c.b.carlosbazan@hotmail.com"'
                 bat 'git config user.name "cbazan19"'
