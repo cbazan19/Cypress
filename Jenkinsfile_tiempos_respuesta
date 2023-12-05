@@ -61,7 +61,7 @@ pipeline{
                 bat 'git commit -m "Guardando tiempos de respuesta de la prueba"'
 
                 // Realiza push al repositorio
-                bat 'git push origin main'
+                bat 'git push origin master'
             }
         }
         }
