@@ -53,7 +53,7 @@ pipeline{
             steps {
             script {
                 // Copia el archivo CSV generado al directorio de artefactos
-                sh 'cp cypress/results/tiempos_de_respuesta.csv ${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/archive/'
+                bat 'cp cypress/results/tiempos_de_respuesta.csv ${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/archive/'
             }
         }
         }
