@@ -48,14 +48,6 @@ pipeline{
             }
 
         }
-        stage('Copy CSV to Artifacts') {
-            steps {
-                script {
-                    // Copia el archivo CSV generado al directorio de artefactos
-                    bat 'copy cypress\\results\\tiempos_de_respuesta.csv %JENKINS_HOME%\\jobs\\%JOB_NAME%\\builds\\%BUILD_NUMBER%\\archive\\'
-                }
-            }
-        }
         stage('Commit and Push CSV to Git') {
         steps {
             script {
