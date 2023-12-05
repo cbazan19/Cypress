@@ -23,7 +23,7 @@ pipeline{
     triggers {
         //cron('0 1 * * *') // Ejecutar todos los días a la 1:00 AM
         //cron('30 10 * * 1-5') // Ejecutar de lunes a viernes a las 10:30 AM  
-        cron('15 10 * * 1-5') // Ejecutar de lunes a viernes a las 09:00 AM
+        //cron('25 10 * * 1-5') // Ejecutar de lunes a viernes a las 09:00 AM
     }
 
     parameters{
@@ -31,9 +31,9 @@ pipeline{
         choice(name: "BROWSER", choices: ['chrome', 'edge', 'firefox', 'chromium'], description: "Elegir browser para ejecutar el test")
     }
 
-    /*options{
+    options{
         ansiColor('xterm')
-    }*/
+    }
 
     stages{
         stage('Build'){
@@ -48,6 +48,14 @@ pipeline{
             }
 
         }
+        stage('Copy CSV to Artifacts') {
+            steps {
+                script {
+                    // Copia el archivo CSV generado al directorio de artefactos
+                    bat 'copy cypress/results/tiempos_de_respuesta.csv %JENKINS_HOME%/jobs/%JOB_NAME%/builds/%BUILD_NUMBER%/archive/'
+                }
+            }
+        }
         stage('Commit and Push CSV to Git') {
         steps {
             script {
@@ -57,7 +65,7 @@ pipeline{
 
                 // Añade y realiza commit del nuevo archivo CSV
                 bat 'git add cypress/results/tiempos_de_respuesta.csv'
-                bat 'git commit -m "Gaurando tiempos de respuesta de la prueba"'
+                bat 'git commit -m "Guardando tiempos de respuesta de la prueba"'
 
                 // Realiza push al repositorio
                 bat 'git push origin master'

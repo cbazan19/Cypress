@@ -23,7 +23,7 @@ pipeline{
     triggers {
         //cron('0 1 * * *') // Ejecutar todos los días a la 1:00 AM
         //cron('0 10 * * 1-5') // Ejecutar de lunes a viernes a las 10:00 AM  
-        cron('35 09 * * 1-5') // Ejecutar de lunes a viernes a las 09:30 AM
+        cron('45 09 * * 1-5') // Ejecutar de lunes a viernes a las 09:30 AM
     }
 
     parameters{
