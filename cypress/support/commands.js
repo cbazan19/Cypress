@@ -31,13 +31,28 @@ Cypress.Commands.add("LoginAbbaco", (user, password) =>
 { 
     
     cy.visit('https://bonds.mercapabbaco.com/')
-    cy.origin('https://mercap.auth0.com', () => 
+   /* cy.origin('https://mercap.auth0.com', () => 
     {
 
       cy.get('#username').should('exist').and('be.visible').click().type('cy_smoke@mercapsoftware.com')
       cy.get('#password').should('exist').and('be.visible').click().type('testing1')
       cy.contains('Continue').click({force: true})
 
-   })
+   })*/
+
+})
+
+Cypress.Commands.add("LoginPepper", (user, password) => 
+{ 
+    
+    cy.visit('https://admin.qa.mercap.com.ar/administrative')
+    /*cy.origin('https://mercap.auth0.com', () => 
+    {
+
+      cy.get('#username').should('exist').and('be.visible').click().type('cy_smoke@mercapsoftware.com')
+      cy.get('#password').should('exist').and('be.visible').click().type('testing1')
+      cy.contains('Continue').click({force: true})
+
+   })*/
 
 })

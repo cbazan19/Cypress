@@ -3,6 +3,17 @@ const { lighthouse, prepareAudit } = require("@cypress-audit/lighthouse");
 const fs = require("fs");
 
 module.exports = defineConfig({
+ /* clientCertificates: [
+    {
+      url: 'https://admin.qa.mercap.com.ar/administrative',
+      certs: [
+        {
+          pfx: 'cypress/certs/abbacodeveloper.pfx',
+          //passphrase: '/cypress/certs/pfx-passphrase.txt',
+        },
+      ],
+    },
+  ],*/
   viewportWidth: 1600,
   viewportHeight: 900,
   reporter: 'cypress-mochawesome-reporter',
