@@ -22,7 +22,7 @@ module.exports = defineConfig({
     experimentalSesssionAndOrigin: true,
     setupNodeEvents(on, config) {
       // implement node event listeners here
-      require('cypress-mochawesome-reporter/plugin')(off);
+      require('cypress-mochawesome-reporter/plugin')(on);
       on("before:browser:launch", (browser = {}, launchOptions) => {
         prepareAudit(launchOptions);
       });
