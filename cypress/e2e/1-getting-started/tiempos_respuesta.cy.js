@@ -44,7 +44,7 @@ describe('Medir tiempos de respuesta', () => {
 
     // Guarda el tiempo obtenido en un archivo CSV
 
-    Cypress.Promise.resolve(cy.writeFile('cypress/results/tiempos_de_respuesta.csv', `\nTiempo de respuesta del LogIn: ${durationInSecondsLogIn} segundos.\nTiempo de respuesta en Home: ${durationInSecondsHome} segundos`, { flag: 'a+' }))
+    Cypress.Promise.resolve(cy.writeFile('cypress/results/tiempos_de_respuesta.csv', `Tiempo de respuesta del LogIn: ${durationInSecondsLogIn} segundos.\nTiempo de respuesta en Home: ${durationInSecondsHome} segundos`, { flag: 'a+' }))
     .then(() => {
       // La operación de escritura ha sido completada
     })
