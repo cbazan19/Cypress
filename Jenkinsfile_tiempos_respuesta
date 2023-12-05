@@ -48,6 +48,21 @@ pipeline{
             }
 
         }
+        stage('Commit and Push CSV to Git') {
+        steps {
+            script {
+                // Configura el usuario de Git
+                bat 'git config user.email "c.b.carlosbazan@hotmail.com"'
+                bat 'git config user.name "cbazan19"'
+
+                // Añade y realiza commit del nuevo archivo CSV
+                bat 'git add cypress/results/tiempos_de_respuesta.csv'
+                bat 'git commit -m "Gaurando tiempos de respuesta de la prueba"'
+
+                // Realiza push al repositorio
+                bat 'git push origin master'
+            }
+        }
         stage('Deploy'){
             steps{
                 echo "Deploying the application"
@@ -68,7 +83,7 @@ pipeline{
                         color: COLOR_MAP[currentBuild.currentResult],
                         message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER} \n Test ejecutado: ${SPEC} \n Navegador: ${BROWSER} \n Ver detalle en: ${env.BUILD_URL}HTML_20Report/"    */
 
-           /* publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/reports/html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])*/
+           publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/reports/html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
             archiveArtifacts artifacts: '**/tiempos_de_respuesta.csv'
         }
 
