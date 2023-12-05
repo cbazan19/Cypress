@@ -48,26 +48,22 @@ pipeline{
             }
 
         }
-    stage('Push Results') {
-            steps {
-                script {
-                    // Clona el repositorio en un directorio temporal
-                    checkout scm
-                    dir('temp_directory') {
-                        // Copia el archivo tiempos_de_respuesta.csv al directorio de trabajo
-                        bat 'copy ..\\cypress\\results\\tiempos_de_respuesta.csv .'
-                        
-                        // Configura las credenciales para autenticarse en el repositorio
-                        withCredentials([usernamePassword(credentialsId: 'cbazan19', passwordVariable: 'Programacion19!', usernameVariable: 'cbazan19')]) {
-                            // Realiza el push al repositorio
-                            bat 'git config --global user.email "c.b.carlosbazan@hotmail.com"'
-                            bat 'git config --global user.name "cbazan19"'
-                            bat 'git add tiempos_de_respuesta.csv'
-                            bat 'git commit -m "Guardando archivo tiempos_de_respuesta.csv"'
-                            bat 'git push https://cbazan19:Programacion19!@github.com/cbazan19/Cypress.git master'
-                        }
-                    }
-                }
+        stage('Commit and Push CSV to Git') {
+        steps {
+            script {
+
+                // Configura el usuario de Git
+                bat 'git config user.email "c.b.carlosbazan@hotmail.com"'
+                bat 'git config user.name "cbazan19"'
+
+                // Añade y realiza commit del nuevo archivo CSV
+                bat 'git add cypress/results/tiempos_de_respuesta.csv'
+                bat 'git commit -m "Guardando tiempos de respuesta de la prueba"'
+
+                // Realiza push al repositorio
+                bat 'git push origin main'
+            }
+        }
         }
         stage('Deploy'){
             steps{
